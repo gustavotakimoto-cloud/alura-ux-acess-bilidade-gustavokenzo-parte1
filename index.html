@@ -15,29 +15,64 @@
 
   <main class="conteudo">
 
-    <section class="card-dica">
+    <!-- Card 1 -->
+    <div class="card-dica" onclick="document.getElementById('modal-1').showModal()">
+      <div class="icone">🔒</div>
+      <h2>1. Proteja sua Senha</h2>
+      <p>Clique para ver os detalhes...</p>
+    </div>
+
+    <dialog id="modal-1" class="modal-card">
       <div class="icone">🔒</div>
       <h2>1. Proteja sua Senha</h2>
       <p>Nunca anote sua senha em papéis guardados na carteira. Não compartilhe seus códigos com ninguém, nem mesmo por telefone.</p>
-    </section>
+      <button class="btn-fechar" onclick="this.closest('dialog').close()">Fechar</button>
+    </dialog>
 
-    <section class="card-dica">
+
+    <!-- Card 2 -->
+    <div class="card-dica" onclick="document.getElementById('modal-2').showModal()">
+      <div class="icone">📱</div>
+      <h2>2. Atenção aos Golpes</h2>
+      <p>Clique para ver os detalhes...</p>
+    </div>
+
+    <dialog id="modal-2" class="modal-card">
       <div class="icone">📱</div>
       <h2>2. Atenção aos Golpes</h2>
       <p>O banco nunca liga pedindo sua senha ou solicitando transferências para teste. Se receber uma ligação suspeita, desligue.</p>
-    </section>
+      <button class="btn-fechar" onclick="this.closest('dialog').close()">Fechar</button>
+    </dialog>
 
-    <section class="card-dica">
+
+    <!-- Card 3 -->
+    <div class="card-dica" onclick="document.getElementById('modal-3').showModal()">
+      <div class="icone">📲</div>
+      <h2>3. Use o Pix com Calma</h2>
+      <p>Clique para ver os detalhes...</p>
+    </div>
+
+    <dialog id="modal-3" class="modal-card">
       <div class="icone">📲</div>
       <h2>3. Use o Pix com Calma</h2>
       <p>Confira sempre o nome da pessoa e o valor na tela antes de digitar sua senha e confirmar o envio do dinheiro.</p>
-    </section>
+      <button class="btn-fechar" onclick="this.closest('dialog').close()">Fechar</button>
+    </dialog>
 
-    <section class="card-dica">
+
+    <!-- Card 4 -->
+    <div class="card-dica" onclick="document.getElementById('modal-4').showModal()">
+      <div class="icone">📄</div>
+      <h2>4. Comprovantes e Extratos</h2>
+      <p>Clique para ver os detalhes...</p>
+    </div>
+
+    <dialog id="modal-4" class="modal-card">
       <div class="icone">📄</div>
       <h2>4. Comprovantes e Extratos</h2>
       <p>Verifique seu extrato uma vez por semana para acompanhar seus gastos e garantir que não há cobranças desconhecidas.</p>
-    </section>
+      <button class="btn-fechar" onclick="this.closest('dialog').close()">Fechar</button>
+    </dialog>
 
   </main>
 
