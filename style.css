@@ -10,8 +10,105 @@ body {
   color: #1a1a1a;
   line-height: 1.6;
   padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
+/* --- Formas Geométricas 3D de Fundo --- */
+.bg-3d-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shape-3d {
+  position: absolute;
+  opacity: 0.25;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+/* Cubo 3D */
+.cube {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 5%;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(45deg);
+  background: linear-gradient(135deg, #004085, #007bff);
+  box-shadow: 15px 15px 25px rgba(0, 64, 133, 0.4);
+  border-radius: 8px;
+}
+
+/* Esfera 3D */
+.sphere {
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  right: 5%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #007bff, #002752);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.3), 10px 10px 20px rgba(0,0,0,0.15);
+  animation-delay: -3s;
+}
+
+/* Pirâmide / Diamante 3D */
+.pyramid {
+  width: 70px;
+  height: 70px;
+  top: 60%;
+  left: 8%;
+  background: linear-gradient(45deg, #004085, #80b3ff);
+  transform: rotate(45deg) skew(15deg, 15deg);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+  animation-delay: -5s;
+}
+
+/* Cubo Secundário */
+.cube-2 {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  right: 8%;
+  transform: rotateX(25deg) rotateY(65deg);
+  background: linear-gradient(135deg, #002752, #004085);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  animation-delay: -2s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-30px) rotate(15deg);
+  }
+}
+
+/* --- Animação Suave de Entrada para Páginas Secundárias --- */
+.page-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Estrutura Principal --- */
 .cabecalho {
   text-align: center;
   background-color: #004085;
@@ -19,6 +116,7 @@ body {
   padding: 30px 20px;
   border-radius: 12px;
   margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .cabecalho h1 {
@@ -36,6 +134,12 @@ body {
   gap: 20px;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 /* --- Cards da tela principal --- */
@@ -69,56 +173,82 @@ body {
   color: #666666;
 }
 
-/* --- Modal (Card em Destaque) --- */
-.modal-card {
-  border: none;
-  border-radius: 16px;
-  padding: 35px;
-  max-width: 500px;
-  width: 90%;
-  margin: auto;
+/* --- Elementos das Páginas Secundárias --- */
+.card-detalhe {
   background-color: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 3px solid #004085;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-/* Efeito de sobreposição no fundo (Escurecimento da tela) */
-.modal-card::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px); /* Adiciona um leve desfoque ao fundo */
-}
-
-.modal-card .icone {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
-.modal-card h2 {
+.card-detalhe h2 {
   font-size: 1.8rem;
   color: #004085;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.modal-card p {
-  font-size: 1.3rem;
-  color: #222222;
+.ilustracao-tema {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.ilustracao-tema svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.secao-conteudo {
   margin-bottom: 25px;
 }
 
-/* Botão Fechar */
-.btn-fechar {
+.secao-conteudo h3 {
+  color: #004085;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e2e3e5;
+  padding-bottom: 5px;
+}
+
+.secao-conteudo p {
+  font-size: 1.15rem;
+  color: #222222;
+  margin-bottom: 12px;
+}
+
+.secao-conteudo ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.secao-conteudo li {
+  font-size: 1.1rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+/* Botão Voltar */
+.btn-voltar {
   background-color: #004085;
   color: #ffffff;
   border: none;
-  padding: 12px 24px;
+  padding: 14px 24px;
   font-size: 1.1rem;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
   transition: background-color 0.2s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
 }
 
-.btn-fechar:hover {
+.btn-voltar:hover {
   background-color: #002752;
 }
 
